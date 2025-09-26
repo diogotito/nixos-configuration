@@ -106,11 +106,15 @@
   # Enable KDE!
   services.desktopManager.plasma6.enable = true;
 
+  # Make ddcutils work without sudo
+  services.udev.extraRules = ''KERNEL=="i2c-[0-9]*", GROUP="ddc", MODE="0660", PROGRAM="${pkgs.ddcutil}/bin/ddcutil --bus=%n getvcp 0x10"'';
+  users.groups.ddc = { };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.diogo = {
     isNormalUser = true;
     description = "Diogo Marques";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "ddc" ];
     shell = pkgs.fish;
 
     # -----------
