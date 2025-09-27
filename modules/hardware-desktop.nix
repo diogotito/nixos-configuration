@@ -17,12 +17,7 @@
 # I'm writing each part as a module-like function)
 #
 #-----------------------------------------------------------------------------
-{
-  pkgs,
-  lib,
-  config,
-  ...
-}: let
+{...}: let
   #-------
   # Audio
   #-------
@@ -130,18 +125,25 @@
     ];
 
     # Make ddcutils work without sudo
-    services.udev.extraRules = ''KERNEL=="i2c-[0-9]*", GROUP="ddc", MODE="0660", PROGRAM="${pkgs.ddcutil}/bin/ddcutil --bus=%n getvcp 0x10"'';
+    services.udev.extraRules = builtins.concatStringsSep ", " [
+      ''KERNEL=="i2c-[0-9]*"''
+      ''GROUP="ddc"''
+      ''MODE="0660"''
+      ''PROGRAM="${pkgs.ddcutil}/bin/ddcutil --bus=%n getvcp 0x10"''
+    ];
     users.groups.ddc = {};
   };
-in
-  # TODO enable |> and <| for swag
-  lib.mkMerge (map (moduleLike: moduleLike {inherit pkgs config;}) [
+in {
+  imports = [
     audio
     nvidia
     mouse
     bluetooth
     ddc
-  ])
+  ];
+}
 # https://discourse.nixos.org/t/several-environment-systempackages-in-configuration-nix/39226/3
-# I could've also put the above list directly in { imports = }, and it would've been better
+# lib.mkMerge (map (moduleLike: moduleLike {inherit pkgs config;}) [
+# This was unnecessary and is less maintainable.
+# using { imports = } is a lot better for reasons.
 

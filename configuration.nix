@@ -216,6 +216,7 @@
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
+    "pipe-operators"
   ];
 
   # This value determines the NixOS release from which the default
