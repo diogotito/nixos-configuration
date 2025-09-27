@@ -1,9 +1,9 @@
 # NixOS configuration
 
-This is a flake, so the best way to rebuild the OS is:
+To rebuild the OS from the NixOS configuration:
 
 ```sh
-sudo nixos-rebuild switch --flake .#nixos-desktop
+sudo nixos-rebuild switch
 ```
 
 and to update the packages:
@@ -14,4 +14,5 @@ nix flake --update
 
 ## Links
 
-- https://github.com/vimjoyer/flake-starter-config
+- https://nixos-and-flakes.thiscute.world/ (amazing book)
+- https://github.com/vimjoyer/flake-starter-config (amazing content in the YouTube channel)
