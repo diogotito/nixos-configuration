@@ -13,6 +13,7 @@
 
   outputs = { self, nixpkgs, ... }@inputs: {
     nixosConfigurations.nixos-desktop = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
       specialArgs = {inherit inputs;};
       modules = [
         ./configuration.nix

@@ -7,7 +7,11 @@
 {
   imports =
     [ 
-      ./hardware-configuration.nix  # Include the results of the hardware scan.
+      # Include the results of the hardware scan.
+      ./hardware-configuration.nix
+
+      # My modules
+      # ...
     ];
 
   # Bootloader.
@@ -17,7 +21,7 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nixos-desktop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -89,13 +93,19 @@
   
   services.blueman.enable = false;  # Reenable if switching out of KDE or Gnome 3
 
+  # Enable KDE!
+  services.xserver.enable = true;
+
   services.displayManager = {
     enable = true;
+
+    # Avoid Wayland for now :(
+    defaultSession = "plasmax11";
     
     # for KDE
     sddm = {
       enable = true;
-      wayland.enable = true;
+      wayland.enable = false;
       autoNumlock = true;
     };
 
@@ -103,7 +113,6 @@
     # ly.enable = true;
   };
 
-  # Enable KDE!
   services.desktopManager.plasma6.enable = true;
 
   # Make ddcutils work without sudo
