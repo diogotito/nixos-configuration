@@ -1,6 +1,9 @@
-{ config, pkgs, inputs, ... }:
-
 {
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -15,7 +18,7 @@
 
     # Avoid Wayland for now :(
     defaultSession = "plasmax11";
-    
+
     # for KDE
     sddm = {
       enable = true;
@@ -30,27 +33,25 @@
   services.desktopManager.plasma6.enable = true;
 
   environment.systemPackages = with pkgs; [
+    # KDE
+    kdePackages.discover
+    kdePackages.kcalc
+    kdePackages.kcharselect
+    kdePackages.kclock
+    kdePackages.kcolorchooser
+    kdePackages.kolourpaint
+    kdePackages.ksystemlog
+    kdePackages.sddm-kcm
+    kdePackages.isoimagewriter
+    kdePackages.partitionmanager
+    kdiff3
+    twilight-kde
 
-      # KDE
-      kdePackages.discover
-      kdePackages.kcalc
-      kdePackages.kcharselect
-      kdePackages.kclock
-      kdePackages.kcolorchooser
-      kdePackages.kolourpaint
-      kdePackages.ksystemlog
-      kdePackages.sddm-kcm
-      kdePackages.isoimagewriter
-      kdePackages.partitionmanager
-      kdiff3
-      twilight-kde
-
-      # Firefox integration
-      kdePackages.plasma-browser-integration
+    # Firefox integration
+    kdePackages.plasma-browser-integration
   ];
 
   programs.firefox.nativeMessagingHosts.packages = [
     pkgs.kdePackages.plasma-browser-integration
   ];
-
 }

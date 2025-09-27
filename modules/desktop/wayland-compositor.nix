@@ -1,22 +1,18 @@
-{ config, pkgs, inputs, ... }:
-
-{
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-
-      # Wayland stuff
-      fuzzel
-      gammastep
-      mako
-      swaybg
-      swayidle
-      swaylock
-      waybar
-      wayland-utils
-      wireplumber
-      wl-clipboard
-      wlsunset
-      xwayland-satellite
-
+    # Wayland stuff
+    fuzzel
+    gammastep
+    mako
+    swaybg
+    swayidle
+    swaylock
+    waybar
+    wayland-utils
+    wireplumber
+    wl-clipboard
+    wlsunset
+    xwayland-satellite
   ];
 
   services.gnome = {
@@ -25,5 +21,4 @@
   };
 
   security.pam.services.swaylock = {};
-
 }

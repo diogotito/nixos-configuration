@@ -11,25 +11,24 @@
 #
 # Docs: nixos-help, configuration.nix(4)
 #-----------------------------------------------------------------------------
-
-{ config, pkgs, inputs, ... }:
-
 {
-  imports =
-    [ 
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+  pkgs,
+  /*
+  config, inputs,
+  */
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
 
-      # My modules
-      ./modules/hardware-desktop.nix
-      ./modules/desktop
-    ];
-
-
+    # My modules
+    ./modules/hardware-desktop.nix
+    ./modules/desktop
+  ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -71,12 +70,11 @@
     LC_TIME = "pt_PT.UTF-8";
   };
 
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.diogo = {
     isNormalUser = true;
     description = "Diogo Marques";
-    extraGroups = [ "networkmanager" "wheel" "ddc" ];
+    extraGroups = ["networkmanager" "wheel" "ddc"];
     shell = pkgs.fish;
 
     # -----------
@@ -106,7 +104,7 @@
       # RIIR
       atuin
       bat
-      bottom  # htop in Rust
+      bottom # htop in Rust
       delta
       dfc
       difftastic
@@ -122,30 +120,31 @@
       procs
       ripgrep
       sd
-      skim  # fzf in Rust
+      skim # fzf in Rust
       tealdeer
       tokei
 
       # More cool utilites
       mpv
-
     ];
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-   neovim
-   git
-   tmux
-   w3m
-   htop
-   nautilus
-   killall
+    neovim
+    git
+    tmux
+    w3m
+    htop
+    nautilus
+    killall
 
-   # Nicer nix
-   nix-output-monitor
-   nox
+    # Nicer nix
+    nix-output-monitor # nom - Processes output of Nix commands to show helpful and pretty information
+    nox # Tools to make nix nicer to use
+    alejandra # Uncompromising Nix Code Formatter
+    nil # Yet another language server for Nix
   ];
 
   environment.sessionVariables = {
@@ -157,22 +156,22 @@
     waybar.enable = false; # I'll launch it in Niri config
     fish.enable = true;
     starship = {
+      enable = true;
+      transientPrompt = {
         enable = true;
-        transientPrompt = {
-            enable = true;
-            # left = "starship module character"
-            # right = "starship module time"
-        };
-        settings = {};
+        # left = "starship module character"
+        # right = "starship module time"
+      };
+      settings = {};
     };
     yazi = {
-        enable = true;
-        settings = {};
+      enable = true;
+      settings = {};
     };
     zoxide = {
-        enable = true;
-        enableBashIntegration = true;
-        enableFishIntegration = true;
+      enable = true;
+      enableBashIntegration = true;
+      enableFishIntegration = true;
     };
   };
 
@@ -215,7 +214,8 @@
   # Nix / NixOS settings
   # --------------------
   nix.settings.experimental-features = [
-      "nix-command" "flakes"
+    "nix-command"
+    "flakes"
   ];
 
   # This value determines the NixOS release from which the default
@@ -225,5 +225,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
-
 }
