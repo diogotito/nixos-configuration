@@ -15,7 +15,7 @@
     telegram-desktop
 
     # Code editors
-    vscode.fhs # vscodium.fhs
+    vscodium.fhs # vscode.fhs
 
     # Art / Game dev
     aseprite
@@ -25,6 +25,9 @@
     krita-plugin-gmic
     godotPackages_4_5.export-templates-bin
     godotPackages_4_5.godot
+
+    # Multimedia stuff
+    mpv
 
     # Desktop utilities
     hardinfo2

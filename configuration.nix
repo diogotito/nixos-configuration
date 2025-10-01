@@ -132,8 +132,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    neovim
-    git
     tmux
     w3m
     htop
@@ -147,16 +145,13 @@
     nil # Yet another language server for Nix
   ];
 
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-  };
-
   programs = {
-    niri.enable = true;
-    waybar.enable = false; # I'll launch it in Niri config
-    fish.enable = true;
-    starship = {
+    # Shell
+    fish = {
       enable = true;
+    };
+    starship = {
+      enable = false; # I'm finding that I prefer fish's default prompt as it is in NixOS
       transientPrompt = {
         enable = true;
         # left = "starship module character"
@@ -164,14 +159,75 @@
       };
       settings = {};
     };
-    yazi = {
-      enable = true;
-      settings = {};
-    };
     zoxide = {
       enable = true;
       enableBashIntegration = true;
       enableFishIntegration = true;
+    };
+    yazi = {
+      enable = true;
+      settings = {};
+    };
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
+    };
+    git = {
+      enable = true;
+      lfs.enable = true;
+      prompt.enable = true;
+      # package = pkgs.git.override { withLibsecret = true; };  # Maybe if I use Gnome 3
+      config = {
+        user.name = "diogotito";
+        user.email = "diogotitomarques@gmail.com";
+        init.defaultBranch = "main";
+        url."https://github.com/".insteadOf = ["gh:" "github:"];
+
+        # QoL stuff
+        # https://blog.gitbutler.com/how-git-core-devs-configure-git
+        push.autoSetupRemote = true;
+        pull = {
+          ff = "only";
+          # rebase = true;
+        };
+        fetch = {
+          all = true;
+          prune = true;
+          pruneTags = true;
+        };
+        merge.conflictstyle = "zdiff3"; # but i see "diff3" in the git-delta docs
+        rebase = {
+          autosquash = true;
+          autostash = true;
+          updateRefs = true;
+        };
+        diff = {
+          renames = true;
+          colorMoved = "default";
+          algorithm = "histogram";
+          mnemonicPrefix = true; # "i/", "w/" or "c/" instead of "a/" and "b/"
+          # colorMovedWS = "default";
+          # wsErrorHighlight = "all";  # idk if this will conflict with git-delta
+        };
+        commit.verbose = true;
+        rerere = {
+          enabled = true;
+          autoupdate = true;
+        };
+        column.ui = "auto";
+        branch.sort = "committerdate";
+        tag.sort = "version:refname";
+        color.ui = true;
+        grep.patternType = "perl";
+
+        # gui.fontdiff = "-family \"Inconsolata Nerd Font\" -size 12 -weight normal -slant roman -underline 0 -overstrike 0";
+        alias = {
+          st = "status";
+          lga = "log --all --oneline --graph --decorate;";
+        };
+      };
     };
   };
 

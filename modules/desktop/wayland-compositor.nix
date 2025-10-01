@@ -15,6 +15,15 @@
     xwayland-satellite
   ];
 
+  programs = {
+    niri.enable = true;
+    waybar.enable = false; # I'll launch it in Niri config
+  };
+
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+  };
+
   services.gnome = {
     gnome-keyring.enable = true; # secret service
     sushi.enable = true;
