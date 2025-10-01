@@ -56,10 +56,14 @@
       graphics.enable = true;
       nvidia = {
         modesetting.enable = true;
+
         powerManagement.enable = false; # Enable if applications keep crashing on resume. Sleep might fail though.
         powerManagement.finegrained = false;
+
         open = true; # open-source kernel MODULE, not to be confused with the independent noveau DRIVER. Should be true.
+
         nvidiaSettings = true;
+
         # package = config.boot.kernelPackages.nvidiaPackages.stable; # doesn't compile with open = true
         package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
           version = "580.65.06";

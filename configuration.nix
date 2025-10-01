@@ -88,6 +88,7 @@
       ranger
 
       # Terminal utilities for dev stuff
+      delta
       fzf
       gh
       jq
@@ -179,9 +180,18 @@
       lfs.enable = true;
       prompt.enable = true;
 
-      package = pkgs.git.override { withLibsecret = true; }; # !! Rebuilds Git from source !!
+      package = pkgs.git.override {withLibsecret = true;}; # !! Rebuilds Git from source !!
       config = {
         credential.helper = "libsecret";
+
+        # Delta
+        core.pager = "delta";
+        interactive.diffFilter = "delta";
+        delta = {
+          navigate = true;
+          light = false;
+          side-by-side = false;
+        };
 
         # Git forges
         user.name = "diogotito";
@@ -201,7 +211,7 @@
           prune = true;
           pruneTags = true;
         };
-        merge.conflictstyle = "zdiff3"; # but i see "diff3" in the git-delta docs
+        merge.conflictstyle = "zdiff3";
         rebase = {
           autosquash = true;
           autostash = true;
