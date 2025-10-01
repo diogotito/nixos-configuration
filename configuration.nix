@@ -178,8 +178,12 @@
       enable = true;
       lfs.enable = true;
       prompt.enable = true;
-      # package = pkgs.git.override { withLibsecret = true; };  # Maybe if I use Gnome 3
+
+      package = pkgs.git.override { withLibsecret = true; }; # !! Rebuilds Git from source !!
       config = {
+        credential.helper = "libsecret";
+
+        # Git forges
         user.name = "diogotito";
         user.email = "diogotitomarques@gmail.com";
         init.defaultBranch = "main";
