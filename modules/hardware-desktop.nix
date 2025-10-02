@@ -57,7 +57,7 @@
       nvidia = {
         modesetting.enable = true;
 
-        powerManagement.enable = false; # Enable if applications keep crashing on resume. Sleep might fail though.
+        powerManagement.enable = true; # Enable if applications keep crashing on resume. Sleep might fail though.
         powerManagement.finegrained = false;
 
         open = true; # open-source kernel MODULE, not to be confused with the independent noveau DRIVER. Should be true.
