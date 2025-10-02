@@ -239,7 +239,7 @@
         # gui.fontdiff = "-family \"Inconsolata Nerd Font\" -size 12 -weight normal -slant roman -underline 0 -overstrike 0";
         alias = {
           st = "status";
-          lga = "log --all --oneline --graph --decorate;";
+          lga = "log --all --oneline --graph --decorate";
         };
       };
     };
