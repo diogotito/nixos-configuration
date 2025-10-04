@@ -32,8 +32,20 @@
     # Desktop utilities
     hardinfo2
 
+    # Productivity
+    calligra
+    libreoffice-qt6-fresh
+    hunspell
+    hunspellDicts.en_US
+    hunspellDicts.pt_PT
+
+    # Password manager
+    bitwarden-desktop
+    bitwarden-cli
+
     # Gaming
     prismlauncher # Minecraft
+    vintagestory
   ];
 
   # Firefox
