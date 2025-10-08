@@ -70,6 +70,15 @@
     LC_TIME = "pt_PT.UTF-8";
   };
 
+  # Run non-NixOS executables more easily
+  programs.nix-ld.enable = true;
+
+  # Run AppImages out of the box
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.diogo = {
     isNormalUser = true;
