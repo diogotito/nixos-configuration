@@ -44,7 +44,9 @@
     kdePackages.sddm-kcm
     kdePackages.isoimagewriter
     kdePackages.partitionmanager
-    kdiff3
+    kdePackages.filelight
+    kdePackages.kompare
+    # kdiff3
     twilight-kde
 
     # Firefox integration

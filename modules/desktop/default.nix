@@ -9,4 +9,7 @@
 
   # Base stuff
   security.polkit.enable = true; # polkit
+
+  # Flatpak
+  services.flatpak.enable = true;
 }
