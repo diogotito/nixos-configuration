@@ -46,6 +46,8 @@
     kdePackages.partitionmanager
     kdePackages.filelight
     kdePackages.kompare
+    kdePackages.ghostwriter
+    kdePackages.yakuake
     # kdiff3
     twilight-kde
 

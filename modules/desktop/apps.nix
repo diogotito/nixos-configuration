@@ -28,6 +28,7 @@
 
     # Multimedia stuff
     mpv
+    yt-dlp
 
     # Desktop utilities
     hardinfo2
