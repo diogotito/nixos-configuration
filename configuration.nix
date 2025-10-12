@@ -96,6 +96,7 @@
       ffmpeg-full
       microfetch
       ranger
+      zenity
 
       # Terminal utilities for dev stuff
       delta
