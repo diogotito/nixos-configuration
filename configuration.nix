@@ -92,6 +92,7 @@
 
     packages = with pkgs; [
       # Terminal utilities for using linux
+      dialog
       ffmpeg-full
       microfetch
       ranger
