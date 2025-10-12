@@ -135,9 +135,6 @@
       skim # fzf in Rust
       tealdeer
       tokei
-
-      # More cool utilites
-      mpv
     ];
   };
 

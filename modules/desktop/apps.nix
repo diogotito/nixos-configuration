@@ -27,6 +27,7 @@
     godotPackages_4_5.godot
 
     # Multimedia stuff
+    audacity
     mpv
     yt-dlp
 
@@ -45,9 +46,30 @@
     bitwarden-cli
 
     # Gaming
+    protonup # to install proton GE with `protonup`
+    mangohud # An overlay to monitor FPS, GPU load, etc.
+    lutris
+    # heroic - frontend for Epic and GOG
+    # bottles - Wine prefix manager
+
+    # Games
     prismlauncher # Minecraft
     vintagestory
   ];
+
+  # With this, I can prepend `gamemoderun/mangohud/gamescope %command%` to the LAUNCH OPTIONS on Steam
+  programs.gamemode.enable = true;
+
+  # Steam
+  programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true;
+  };
+
+  environment.sessionVariables = {
+    # protonup -d "~/.steam/root/compatibilitytools.d/"
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/diogo/.steam/root/compatibilitytools.d";
+  };
 
   # Firefox
   programs.firefox = {
