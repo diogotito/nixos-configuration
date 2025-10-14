@@ -10,17 +10,23 @@
     ghostty
     wezterm
 
+    # Desktop terminal utilities
+    zenity
+    libnotify
+
     # Chat
     discord
     telegram-desktop
 
     # Code editors
     vscodium.fhs # vscode.fhs
+    # sublime4 # requires nixpkgs.config.permittedInsecurePackages = ["openssl-1.1.1w"];
 
     # Art / Game dev
     aseprite
     blender
     gimp3 # -with-plugins ??
+    pinta
     krita
     krita-plugin-gmic
     godotPackages_4_5.export-templates-bin
@@ -49,6 +55,7 @@
     protonup # to install proton GE with `protonup`
     mangohud # An overlay to monitor FPS, GPU load, etc.
     lutris
+    vulkan-tools
     # heroic - frontend for Epic and GOG
     # bottles - Wine prefix manager
 

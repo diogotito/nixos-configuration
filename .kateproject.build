@@ -1,0 +1,23 @@
+{
+    "Auto_generated": "This file is auto-generated. Any extra tags or formatting will be lost",
+    "target_sets": [
+        {
+            "cmake_config": "",
+            "directory": "/home/diogo/git/nixos-configuration",
+            "loaded_via_cmake": false,
+            "name": "NixOS configuration",
+            "targets": [
+                {
+                    "build_cmd": "nixos-rebuild build",
+                    "name": "NixOS Rebuild",
+                    "run_cmd": "sudo nixos-rebuild switch"
+                },
+                {
+                    "build_cmd": "alejandra .",
+                    "name": "Formatter",
+                    "run_cmd": ""
+                }
+            ]
+        }
+    ]
+}

@@ -15,10 +15,19 @@
     self,
     nixpkgs,
     ...
-  } @ inputs: {
+  } @ inputs: let
+    system = "x86_64-linux";
+    nixpkgs-unstable = import inputs.nixpkgs-unstable {
+      inherit system;
+      config.allowUnfree = true;
+    };
+  in {
     nixosConfigurations.nixos-desktop = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = {inherit inputs;};
+      inherit system;
+      specialArgs = {
+        inherit inputs;
+        unstablePkgs = nixpkgs-unstable;
+      };
       modules = [
         ./configuration.nix
         # inputs.home-manager.nixosModules.default

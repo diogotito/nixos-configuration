@@ -13,9 +13,8 @@
 #-----------------------------------------------------------------------------
 {
   pkgs,
-  /*
-  config, inputs,
-  */
+  # unstablePkgs,
+  # config
   ...
 }: {
   imports = [
@@ -29,13 +28,21 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  boot = {
+    loader = {
+        systemd-boot.enable = true;
+        efi.canTouchEfiVariables = true;
+    };
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+    # Use the LTS kernel because of Nvidia.
+    # Alternatively: pkgs.linuxPackages_latest,  unstablePkgs.linuxPackages_zen
 
-  # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+
+    # kernelPackages = # uses LTS by default
+    # extraModulePackages = with config.boot.kernelPackages; [ ];
+
+    kernel.sysctl."kernel.sysrq" = 1;
+  };
 
   # This machine's hostname
   # NOTE: If this matches what's in nixosConfigurations in flake.nix,
@@ -96,7 +103,6 @@
       ffmpeg-full
       microfetch
       ranger
-      zenity
 
       # Terminal utilities for dev stuff
       delta
@@ -294,7 +300,7 @@
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
-    "pipe-operators"
+    "pipe-operators" # handy in the REPL for now
   ];
 
   # This value determines the NixOS release from which the default
