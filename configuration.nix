@@ -39,7 +39,6 @@
 
 
     # kernelPackages = # uses LTS by default
-    kernelPackages = pkgs.linuxPackages_zen;
     # extraModulePackages = with config.boot.kernelPackages; [ ];
 
     kernel.sysctl."kernel.sysrq" = 1;
