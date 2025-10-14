@@ -1,7 +1,5 @@
 {
-  config,
   pkgs,
-  inputs,
   ...
 }: {
   # Configure keymap in X11
@@ -32,6 +30,10 @@
 
   services.desktopManager.plasma6.enable = true;
 
+  environment.sessionVariables = {
+    GTK_USE_PORTAL = 1;
+  };
+
   environment.systemPackages = with pkgs; [
     # KDE
     kdePackages.discover
@@ -48,8 +50,16 @@
     kdePackages.kompare
     kdePackages.ghostwriter
     kdePackages.yakuake
+    kdePackages.xdg-desktop-portal-kde
+    kdePackages.kdialog
     kdePackages.merkuro
+    kdePackages.kaddressbook
+    kdePackages.kdepim-runtime
+    kdePackages.kdepim-addons
+    kdePackages.kaccounts-providers
+    kdePackages.kaccounts-integration
     # kdiff3
+    material-kwin-decoration
     twilight-kde
 
     # Firefox integration
