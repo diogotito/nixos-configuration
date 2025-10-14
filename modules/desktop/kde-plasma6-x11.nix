@@ -49,6 +49,7 @@
     kdePackages.ghostwriter
     kdePackages.yakuake
     kdePackages.merkuro
+    kdePackages.kdeconnect-kde
     # kdiff3
     twilight-kde
 
