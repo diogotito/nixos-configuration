@@ -20,7 +20,7 @@
 
     # Code editors
     vscodium.fhs # vscode.fhs
-    # sublime4 # requires nixpkgs.config.permittedInsecurePackages = ["openssl-1.1.1w"];
+    sublime4
 
     # Art / Game dev
     aseprite
@@ -86,4 +86,7 @@
     # preferencesStatus = "user"
     # ...
   };
+
+  # Required for Sublime Text 4
+  nixpkgs.config.permittedInsecurePackages = ["openssl-1.1.1w"];
 }
