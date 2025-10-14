@@ -20,6 +20,7 @@
     nixpkgs-unstable = import inputs.nixpkgs-unstable {
       inherit system;
       config.allowUnfree = true;
+      config.permittedInsecurePackages = ["openssl-1.1.1w"]; # required for Sublime Text 4
     };
   in {
     nixosConfigurations.nixos-desktop = nixpkgs.lib.nixosSystem {

@@ -1,7 +1,6 @@
 {
-  config,
   pkgs,
-  inputs,
+  unstablePkgs,
   ...
 }: {
   environment.systemPackages = with pkgs; [
@@ -20,7 +19,7 @@
 
     # Code editors
     vscodium.fhs # vscode.fhs
-    sublime4
+    unstablePkgs.sublime4
 
     # Art / Game dev
     aseprite
@@ -86,7 +85,4 @@
     # preferencesStatus = "user"
     # ...
   };
-
-  # Required for Sublime Text 4
-  nixpkgs.config.permittedInsecurePackages = ["openssl-1.1.1w"];
 }
