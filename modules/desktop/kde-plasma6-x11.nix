@@ -49,13 +49,14 @@
     kdePackages.ghostwriter
     kdePackages.yakuake
     kdePackages.merkuro
-    kdePackages.kdeconnect-kde
     # kdiff3
     twilight-kde
 
     # Firefox integration
     kdePackages.plasma-browser-integration
   ];
+
+  programs.kdeconnect.enable = true;
 
   programs.firefox.nativeMessagingHosts.packages = [
     pkgs.kdePackages.plasma-browser-integration
