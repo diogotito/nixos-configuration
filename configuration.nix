@@ -30,13 +30,12 @@
   nixpkgs.config.allowUnfree = true;
   boot = {
     loader = {
-        systemd-boot.enable = true;
-        efi.canTouchEfiVariables = true;
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
     };
 
     # Use the LTS kernel because of Nvidia.
     # Alternatively: pkgs.linuxPackages_latest,  unstablePkgs.linuxPackages_zen
-
 
     # kernelPackages = # uses LTS by default
     # extraModulePackages = with config.boot.kernelPackages; [ ];

@@ -48,6 +48,7 @@
     kdePackages.kompare
     kdePackages.ghostwriter
     kdePackages.yakuake
+    kdePackages.merkuro
     # kdiff3
     twilight-kde
 
