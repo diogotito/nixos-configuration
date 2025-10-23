@@ -21,6 +21,9 @@
     vscodium.fhs # vscode.fhs
     unstablePkgs.sublime4
 
+    # Dev tools
+    gg-jj
+
     # Art / Game dev
     aseprite
     blender
