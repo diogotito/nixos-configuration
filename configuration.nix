@@ -262,6 +262,9 @@
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-emoji
+    source-sans-pro
+    open-sans
+    inter
     liberation_ttf
     fira-code
     fira-code-symbols
