@@ -65,6 +65,7 @@
     # Games
     prismlauncher # Minecraft
     vintagestory
+    mgba
   ];
 
   # With this, I can prepend `gamemoderun/mangohud/gamescope %command%` to the LAUNCH OPTIONS on Steam
@@ -79,6 +80,11 @@
   environment.sessionVariables = {
     # protonup -d "~/.steam/root/compatibilitytools.d/"
     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/diogo/.steam/root/compatibilitytools.d";
+  };
+
+  services.xserver.desktopManager.retroarch = {
+    enable = true;
+    # package = unstablePkgs.retroarch-full;  # This builds MAME? I don't want to!
   };
 
   # Firefox
