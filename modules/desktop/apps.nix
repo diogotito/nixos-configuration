@@ -3,7 +3,7 @@
   unstablePkgs,
   ...
 }: {
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with unstablePkgs; [
     # Terminals
     alacritty
     ghostty
