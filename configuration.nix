@@ -102,6 +102,7 @@
       ffmpeg-full
       microfetch
       ranger
+      libqalculate
 
       # Terminal utilities for dev stuff
       delta

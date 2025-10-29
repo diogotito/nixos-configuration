@@ -41,6 +41,7 @@
 
     # Desktop utilities
     hardinfo2
+    qalculate-qt  # Maybe prefer qalculate-gtk if I'm on Gnome or something?
 
     # Productivity
     calligra
