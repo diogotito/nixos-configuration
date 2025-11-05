@@ -89,7 +89,7 @@
   users.users.diogo = {
     isNormalUser = true;
     description = "Diogo Marques";
-    extraGroups = ["networkmanager" "wheel" "ddc"];
+    extraGroups = ["networkmanager" "wheel" "ddc" "docker"];
     shell = pkgs.fish;
 
     # -----------
@@ -277,6 +277,11 @@
     nerd-fonts.inconsolata
     nerd-fonts.fira-code
   ];
+
+  # Docker
+  virtualisation.docker = {
+    enable = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
