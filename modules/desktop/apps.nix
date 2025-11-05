@@ -25,6 +25,9 @@
     # Dev tools
     gg-jj
 
+    # Browsers
+    ungoogled-chromium
+
     # Art / Game dev
     aseprite
     blender
@@ -95,6 +98,15 @@
     # preferences = { ... }
     # preferencesStatus = "user"
     # ...
+  };
+
+  # Chromium
+  programs.chromium = {
+    enable = true;
+    extensions = [
+      "ocaahdebbfolfmndjeplogmgcagdmblk;https://raw.githubusercontent.com/NeverDecaf/chromium-web-store/refs/heads/master/updates.xml" # chromium-web-store
+      "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
+    ];
   };
 
   # OBS Studio

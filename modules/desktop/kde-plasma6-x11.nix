@@ -68,4 +68,7 @@
   programs.firefox.nativeMessagingHosts.packages = [
     pkgs.kdePackages.plasma-browser-integration
   ];
+
+  programs.chromium.enablePlasmaBrowserIntegration = true;
+
 }
