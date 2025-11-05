@@ -19,7 +19,8 @@
 
     # Code editors
     vscodium.fhs # vscode.fhs
-    unstablePkgs.sublime4
+    sublime4
+    zed-editor
 
     # Dev tools
     gg-jj
