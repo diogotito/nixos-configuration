@@ -11,6 +11,7 @@
 
     # Desktop terminal utilities
     zenity
+    yad
     libnotify
 
     # Chat
@@ -60,6 +61,7 @@
 
     # Gaming
     protonup # to install proton GE with `protonup`
+    protontricks
     mangohud # An overlay to monitor FPS, GPU load, etc.
     lutris
     vulkan-tools
@@ -67,10 +69,10 @@
     # bottles - Wine prefix manager
 
     # Games
-    prismlauncher # Minecraft
+    pkgs.prismlauncher # Minecraft
     vintagestory
-    mgba
     mednafen
+    mgba
   ];
 
   # With this, I can prepend `gamemoderun/mangohud/gamescope %command%` to the LAUNCH OPTIONS on Steam
