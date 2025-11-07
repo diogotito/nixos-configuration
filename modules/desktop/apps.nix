@@ -45,7 +45,7 @@
 
     # Desktop utilities
     hardinfo2
-    qalculate-qt  # Maybe prefer qalculate-gtk if I'm on Gnome or something?
+    qalculate-qt # Maybe prefer qalculate-gtk if I'm on Gnome or something?
 
     # Productivity
     calligra
@@ -70,6 +70,7 @@
     prismlauncher # Minecraft
     vintagestory
     mgba
+    mednafen
   ];
 
   # With this, I can prepend `gamemoderun/mangohud/gamescope %command%` to the LAUNCH OPTIONS on Steam
@@ -109,13 +110,9 @@
     ];
   };
 
-
   # OBS Studio
   programs.obs-studio = {
     enable = true;
-
-
-
 
     # Nvidia hardware acceleration
     package = pkgs.obs-studio.override {cudaSupport = true;};
