@@ -55,6 +55,7 @@
     kdePackages.kdepim-addons
     kdePackages.kaccounts-providers
     kdePackages.kaccounts-integration
+    
     # kdiff3
     material-kwin-decoration
     twilight-kde
