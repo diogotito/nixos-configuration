@@ -49,7 +49,6 @@
     qalculate-qt # Maybe prefer qalculate-gtk if I'm on Gnome or something?
 
     # Productivity
-    calligra
     libreoffice-qt6-fresh
     hunspell
     hunspellDicts.en_US
@@ -60,7 +59,7 @@
     bitwarden-cli
 
     # Gaming
-    protonup # to install proton GE with `protonup`
+    protonup-ng # to install proton GE with `protonup`
     protontricks
     mangohud # An overlay to monitor FPS, GPU load, etc.
     lutris
@@ -70,7 +69,7 @@
 
     # Games
     pkgs.prismlauncher # Minecraft
-    vintagestory
+    # vintagestory # broken?
     mednafen
     mgba
   ];

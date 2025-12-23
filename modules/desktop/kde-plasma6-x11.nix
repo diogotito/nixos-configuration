@@ -33,6 +33,7 @@
 
   environment.systemPackages = with pkgs; [
     # KDE
+    kdePackages.calligra
     kdePackages.discover
     kdePackages.kcalc
     kdePackages.kcharselect
@@ -57,7 +58,6 @@
     kdePackages.kaccounts-integration
 
     # kdiff3
-    material-kwin-decoration
     twilight-kde
 
     # Firefox integration
