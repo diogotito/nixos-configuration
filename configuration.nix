@@ -30,7 +30,13 @@
   nixpkgs.config.allowUnfree = true;
   boot = {
     loader = {
-      systemd-boot.enable = true;
+      # systemd-boot.enable = true;
+      refind.enable = true;
+      # "You must set the option ‘boot.loader.grub.devices’ or 'boot.loader.grub.mirroredBoots' to make the system bootable."
+      grub.enable = false;
+      grub.devices = [
+        "/dev/disk/by-partuuid/0be385ca-296a-4313-b676-fdb4952f0389"
+      ];
       efi.canTouchEfiVariables = true;
     };
 
@@ -77,7 +83,12 @@
   };
 
   # Run non-NixOS executables more easily
-  programs.nix-ld.enable = true;
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      (pkgs.runCommand "steamrun-lib" {} "mkdir $out; ln -s ${pkgs.steam-run.fhsenv}/usr/lib64 $out/lib")
+    ];
+  };
 
   # Run AppImages out of the box
   programs.appimage = {
