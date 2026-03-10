@@ -36,8 +36,8 @@
     pinta
     krita
     krita-plugin-gmic
-    godotPackages_4_5.export-templates-bin
-    godotPackages_4_5.godot
+    godotPackages.export-template
+    godot
 
     # Multimedia stuff
     audacity
